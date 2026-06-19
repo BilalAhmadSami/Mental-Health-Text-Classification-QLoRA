@@ -1,0 +1,19 @@
+# IMPORTANT: install PyTorch FIRST, matching your CUDA, from the official index.
+# Your lab machine reports CUDA 13.0 driver (forward-compatible with cu124 wheels).
+# Example (run this BEFORE the lines below):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#
+# Then: pip install -r requirements.txt
+
+transformers>=4.44.0
+peft>=0.13.0
+bitsandbytes>=0.43.0      # 4-bit quantization (needs a CUDA GPU)
+trl>=0.11.0               # SFTTrainer
+datasets>=2.21.0
+accelerate>=0.34.0
+evaluate>=0.4.2
+scikit-learn>=1.5.0       # metrics + confusion matrix
+pandas>=2.0.0
+numpy>=1.26.0
+matplotlib>=3.8.0         # confusion-matrix plot
+# wandb>=0.18.0           # optional experiment tracking

@@ -1,0 +1,22 @@
+# Model outputs / checkpoints / adapters (large — push to HF Hub instead)
+outputs/
+*.bin
+*.safetensors
+
+# HuggingFace + dataset caches
+.cache/
+data/
+
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Notebooks / OS
+.ipynb_checkpoints/
+.DS_Store
