@@ -8,6 +8,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = PROJECT_ROOT / "outputs"          # checkpoints, metrics, plots
 ADAPTER_DIR = OUTPUT_DIR / "phi3-mh-lora"       # final LoRA adapter
+PROCESSED_DIR = PROJECT_ROOT / "data" / "processed"   # built by data_prep (gitignored)
 
 # --- Dataset -------------------------------------------------------------
 # Public, no token needed. Full 7-class "Sentiment Analysis for Mental Health"
@@ -24,9 +25,19 @@ LABEL_COLUMN = "status"
 #   - "Bipolar"/"Personality disorder" -> sparse
 # Research/education only — not a diagnostic tool.
 KEEP_LABELS = ["Normal", "Depression", "Stress"]
+LABELS = KEEP_LABELS
 
-# No predefined test split, so we carve our own (stratified) below.
-TEST_FRACTION = 0.10
+# --- Splits (balanced for fair evaluation; train balanced by downsampling) ---
+TEST_PER_CLASS = 300
+VAL_PER_CLASS = 150
+SEED = 42
+
+# --- Prompt --------------------------------------------------------------
+SYSTEM_INSTRUCTION = (
+    "You classify a short first-person statement into exactly one of: "
+    "Normal, Depression, Stress. This is for research and education only and is "
+    "NOT a diagnostic or screening tool. Respond with only the single label word."
+)
 
 # --- Base model (fits 16 GB with QLoRA; MIT-licensed, not gated) ---------
 BASE_MODEL = "microsoft/Phi-3-mini-4k-instruct"
@@ -41,13 +52,9 @@ LORA_DROPOUT = 0.05
 LORA_TARGET_MODULES = "all-linear"
 
 # --- Training ------------------------------------------------------------
-EPOCHS = 2
+EPOCHS = 3
 LEARNING_RATE = 2e-4
 TRAIN_BATCH_SIZE = 8
 GRAD_ACCUM = 2             # effective batch = 16
 EVAL_BATCH_SIZE = 8
-SEED = 42
-VAL_FRACTION = 0.1         # carve a validation set out of train
-
-# Optional Weights & Biases logging (set to False to disable)
 USE_WANDB = False
