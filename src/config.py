@@ -1,6 +1,6 @@
 """Central configuration for the Mental-Health QLoRA fine-tuning project.
 
-Every script imports its settings from here, so you change things in one place.
+Every script imports its settings from here, so all settings live in one place.
 """
 from pathlib import Path
 

@@ -5,7 +5,7 @@ accuracy, macro-F1, a per-class report, and a confusion matrix (saved as PNG).
 The headline result is the IMPROVEMENT of fine-tuned over the un-tuned base.
 
 Run (after training):
-    .venv/bin/python -m src.evaluate_model
+    python -m src.evaluate_model
 """
 from __future__ import annotations
 

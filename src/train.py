@@ -10,8 +10,8 @@ QLoRA recipe:
      (completion-only), so the model learns to OUTPUT the class.
   4. Save just the LoRA adapter.
 
-Run on the GPU machine:
-    .venv/bin/python -m src.train
+Usage (requires a CUDA GPU):
+    python -m src.train
 """
 from __future__ import annotations
 

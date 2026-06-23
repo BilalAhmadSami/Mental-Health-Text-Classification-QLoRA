@@ -4,8 +4,8 @@ Loads the 4-bit base model + your trained adapter once, then classifies any
 text into Normal / Depression / Stress.
 
 Usage:
-    .venv/bin/python -m src.inference                      # runs a few samples
-    .venv/bin/python -m src.inference "your text here"     # classify your own
+    python -m src.inference                      # runs a few samples
+    python -m src.inference "your text here"     # classify your own
 
 ⚠️ Research/education only — NOT a diagnostic or screening tool.
 """

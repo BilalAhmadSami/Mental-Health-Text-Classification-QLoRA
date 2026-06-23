@@ -4,7 +4,7 @@ Loads the dataset, shows the full class distribution, then the distribution
 after keeping only our clean 3 classes (Normal / Depression / Stress), plus
 basic text-length stats and sample rows.
 
-Run on the lab machine (needs internet the first time to download):
+Usage (downloads the dataset on first run):
     pip install datasets pandas
     python -m src.explore_data
 """

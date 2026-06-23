@@ -1,11 +1,11 @@
 """Step 6 — Publish the LoRA adapter to the HuggingFace Hub.
 
-Authenticate FIRST in your terminal (the token stays on your machine, never in
-any script or chat):
-    huggingface-cli login        # paste a HF token with WRITE access
+Authenticate FIRST in your terminal (the token stays on your machine and is never hardcoded in
+a script):
+    hf auth login                # paste a HF token with WRITE access
 
 Then:
-    .venv/bin/python -m src.push_to_hub
+    python -m src.push_to_hub
 """
 from __future__ import annotations
 
