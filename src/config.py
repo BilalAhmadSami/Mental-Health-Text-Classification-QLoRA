@@ -58,3 +58,6 @@ TRAIN_BATCH_SIZE = 8
 GRAD_ACCUM = 2             # effective batch = 16
 EVAL_BATCH_SIZE = 8
 USE_WANDB = False
+
+# --- HuggingFace Hub (where to publish the trained adapter) --------------
+HF_ADAPTER_REPO = "bs01338/phi3-mini-mental-health-qlora"
