@@ -1,11 +1,11 @@
 # Mental Health Text Classification with QLoRA
 
 Fine-tuning **Phi-3 Mini (3.8B)** with **QLoRA** to classify a short first-person
-statement into **Normal / Depression / Stress** — trained on a single 16 GB GPU.
+statement into **Normal / Depression / Stress** - trained on a single 16 GB GPU.
 
 **🤗 Model (LoRA adapter):** https://huggingface.co/bs01338/phi3-mini-mental-health-qlora
 
-> ⚠️ **Research and education only — NOT a diagnostic, screening, or crisis tool.**
+> ⚠️ **Research and education only - NOT a diagnostic, screening, or crisis tool.**
 > Labels come from social-media context, not clinical diagnoses, and the model
 > must never be used to make decisions about real people.
 
