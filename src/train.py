@@ -39,7 +39,7 @@ def main() -> None:
     ds = load_from_disk(str(PROCESSED_DIR))
 
     # --- Tokenizer ------------------------------------------------------
-    tok = AutoTokenizer.from_pretrained(BASE_MODEL, trust_remote_code=True)
+    tok = AutoTokenizer.from_pretrained(BASE_MODEL)
     if tok.pad_token is None:
         tok.pad_token = tok.eos_token
     tok.padding_side = "right"
@@ -82,7 +82,6 @@ def main() -> None:
         BASE_MODEL,
         quantization_config=bnb,
         device_map="auto",
-        trust_remote_code=True,
         attn_implementation="eager",
     )
     model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=True)
