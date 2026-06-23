@@ -39,9 +39,9 @@ subset. Confusion-matrix plots are written to `outputs/` by the evaluation scrip
 Full fine-tuning of a 3.8B model needs ~30 GB+ of GPU memory. **QLoRA** fits it in
 ~8 GB by combining two ideas:
 
-- **Q — 4-bit quantization (NF4):** the base model's weights are stored in 4 bits
+- **Q - 4-bit quantization (NF4):** the base model's weights are stored in 4 bits
   (~4× smaller) and dequantized to bf16 only for computation. The base stays frozen.
-- **LoRA — Low-Rank Adaptation:** instead of updating all weights, small trainable
+- **LoRA - Low-Rank Adaptation:** instead of updating all weights, small trainable
   adapter matrices (~1% of parameters) are attached to the linear layers. Only
   these are trained.
 
@@ -54,7 +54,7 @@ The output is a few-MB **adapter** that is layered onto the base model at infere
 | Component | Choice |
 |-----------|--------|
 | Base model | `microsoft/Phi-3-mini-4k-instruct` (3.8B, MIT) |
-| Fine-tuning | QLoRA — `peft` (LoRA r=16, α=32) + `bitsandbytes` (4-bit NF4) |
+| Fine-tuning | QLoRA - `peft` (LoRA r=16, α=32) + `bitsandbytes` (4-bit NF4) |
 | Trainer | HuggingFace `transformers.Trainer` (completion-only loss) |
 | Data | `btwitssayan/sentiment-analysis-for-mental-health` (3 clean classes) |
 | Metrics | `scikit-learn` (accuracy, macro-F1, confusion matrix) |
@@ -117,7 +117,7 @@ python -m src.inference "deadlines piling up and I can't keep up"
 
 ## Limitations & future work
 
-- Labels are derived from subreddit context, not clinical judgement — a real
+- Labels are derived from subreddit context, not clinical judgement - a real
   ceiling on achievable quality. The 93% reflects *this dataset's* distribution.
 - "Normal", "Stress" and "Depression" genuinely overlap in casual text.
 - **Future work:** cross-dataset evaluation (test on a *different* social-media
